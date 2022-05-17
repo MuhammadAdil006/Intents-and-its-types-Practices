@@ -39,4 +39,14 @@
         android:textSize="20sp"
         tools:layout_editor_absoluteX="108dp"
         tools:layout_editor_absoluteY="119dp" />
+
+    <Button
+        android:id="@+id/email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="164dp"
+        android:layout_marginTop="133dp"
+        android:text="CheckForEmail"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/CallTo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

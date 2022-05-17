@@ -10,15 +10,17 @@ import android.widget.Button;
 import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-Button call;
+Button call,email;
 EditText phoneN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         call=(Button) findViewById(R.id.CallTo) ;
+        email=(Button) findViewById(R.id.email) ;
         phoneN=(EditText) findViewById(R.id.PhoneNo);
         call.setOnClickListener(this);
+        email.setOnClickListener(this);
 
     }
 
@@ -34,6 +36,10 @@ EditText phoneN;
             Intent intent = new Intent(Intent.ACTION_DIAL,uri);
             startActivity(intent);
 
+        }else if(view.getId()==R.id.email)
+        {
+            Intent intent3= new Intent(MainActivity.this,EmailIntents.class);
+            startActivity(intent3);
         }
     }
 }
