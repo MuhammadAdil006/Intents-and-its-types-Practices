@@ -12,7 +12,7 @@ import android.widget.EditText;
 import java.net.URI;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-Button call,email,web;
+Button call,email,web,data;
 EditText phoneN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,10 +21,12 @@ EditText phoneN;
         call=(Button) findViewById(R.id.CallTo) ;
         web=(Button) findViewById(R.id.web) ;
        email=(Button) findViewById(R.id.Mailing) ;
+       data=(Button) findViewById(R.id.data) ;
         phoneN=(EditText) findViewById(R.id.PhoneNo);
         call.setOnClickListener(this);
         email.setOnClickListener(this);
         web.setOnClickListener(this);
+        data.setOnClickListener(this);
 
     }
 
@@ -51,6 +53,14 @@ EditText phoneN;
             intent3.setType("*/*");
             intent3.putExtra(Intent.EXTRA_EMAIL,"qadil392@gmail.com");
             intent3.putExtra(Intent.EXTRA_SUBJECT,"something related to subject");
+
+            startActivity(intent3);
+        }else if(view.getId()==R.id.data)
+        {
+
+            Intent intent3= new Intent(MainActivity.this,EmailIntents.class);
+            String msg="this is some message";
+            intent3.putExtra("msg",msg);
 
             startActivity(intent3);
         }
