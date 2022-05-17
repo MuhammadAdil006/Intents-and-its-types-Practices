@@ -9,18 +9,22 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import java.net.URI;
+
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
-Button call,email;
+Button call,email,web;
 EditText phoneN;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         call=(Button) findViewById(R.id.CallTo) ;
-        email=(Button) findViewById(R.id.email) ;
+        web=(Button) findViewById(R.id.web) ;
+       email=(Button) findViewById(R.id.Mailing) ;
         phoneN=(EditText) findViewById(R.id.PhoneNo);
         call.setOnClickListener(this);
         email.setOnClickListener(this);
+        web.setOnClickListener(this);
 
     }
 
@@ -36,9 +40,18 @@ EditText phoneN;
             Intent intent = new Intent(Intent.ACTION_DIAL,uri);
             startActivity(intent);
 
-        }else if(view.getId()==R.id.email)
+        }else if(view.getId()==R.id.web)
         {
             Intent intent3= new Intent(MainActivity.this,EmailIntents.class);
+            startActivity(intent3);
+        }else if(view.getId()==R.id.Mailing)
+        {
+
+            Intent intent3= new Intent(Intent.ACTION_SEND);
+            intent3.setType("*/*");
+            intent3.putExtra(Intent.EXTRA_EMAIL,"qadil392@gmail.com");
+            intent3.putExtra(Intent.EXTRA_SUBJECT,"something related to subject");
+
             startActivity(intent3);
         }
     }
